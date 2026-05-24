@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 228 42% 8%;
+    --foreground: 0 0% 98%;
+    --card: 228 35% 11%;
+    --card-foreground: 0 0% 98%;
+    --primary: 186 100% 50%;
+    --primary-foreground: 228 42% 8%;
+    --secondary: 228 25% 16%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 228 25% 14%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 252 55% 22%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 228 25% 18%;
+    --input: 228 25% 16%;
+    --ring: 186 100% 50%;
+    --radius: 0.75rem;
+    --success: 186 100% 50%;
+    --warning: 38 92% 50%;
+    --danger: 0 72% 51%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-color: #0b1020;
+    background-image: radial-gradient(
+        ellipse 80% 50% at 50% -20%,
+        hsl(186 100% 50% / 0.12),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 100% 0%,
+        hsl(252 100% 67% / 0.1),
+        transparent
+      );
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+
+  /* Modern scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(228 25% 22%);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(186 100% 50% / 0.4);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply rounded-xl border border-white/[0.08] bg-card/60 shadow-lg shadow-black/20 backdrop-blur-xl;
+  }
+
+  .modern-card {
+    @apply glass transition-all duration-300;
+  }
+
+  .modern-card:hover {
+    @apply border-[#00F0FF]/20 shadow-xl shadow-[#00F0FF]/5;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#00F0FF] to-[#7A5CFF] bg-clip-text text-transparent;
+  }
+
+  .glow-ring {
+    box-shadow: 0 0 0 1px hsl(186 100% 50% / 0.15),
+      0 0 24px -4px hsl(186 100% 50% / 0.25);
+  }
+
+  /* Schema ER diagram (React Flow) */
+  .schema-flow-er {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+  }
+
+  .schema-flow-er .react-flow__viewport {
+    width: 100%;
+    height: 100%;
+  }
+
+  .schema-flow-er .react-flow__node {
+    z-index: 2;
+  }
+
+  .schema-flow-er .react-flow__edge-text {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  .schema-flow-er .react-flow__node.selected {
+    z-index: 10 !important;
+  }
+
+  .schema-flow-controls {
+    border: 1px solid rgba(148, 163, 184, 0.2) !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .schema-flow-controls button {
+    border: none !important;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12) !important;
+    background: #131a2e !important;
+    color: #94a3b8 !important;
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .schema-flow-controls button:hover {
+    background: #1a2238 !important;
+    color: #00f0ff !important;
+  }
+
+  .schema-flow-controls button:last-child {
+    border-bottom: none !important;
+  }
+
+  .schema-flow-controls button svg {
+    fill: currentColor !important;
+  }
+}

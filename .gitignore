@@ -1,0 +1,11 @@
+node_modules/
+.next/
+__pycache__/
+*.pyc
+.env
+.env.local
+.venv/
+venv/
+schema_extract.json
+.DS_Store
+.run/
